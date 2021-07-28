@@ -6,7 +6,7 @@ require 'ethon'
 root = Nokogiri::HTML(URI.open("https://windows10spotlight.com/"))
 maxpage = root.css('nav.navigation.pagination > div.nav-links > a.page-numbers')[-2].content.to_i
 
-(195..maxpage).each do |page|
+(1..maxpage).each do |page|
   puts "Working on page #{page} of #{maxpage}"
   page = Nokogiri::HTML(URI.open("https://windows10spotlight.com/page/#{page}"))
   articles = page.css('article > h2 > a')
